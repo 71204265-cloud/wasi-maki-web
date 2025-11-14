@@ -29,7 +29,7 @@ export default function WasiMakiMap() {
         const fetchNegocios = async () => {
             try {
                 // LLAMADA AL ENDPOINT CORRECTO
-                const response = await fetch('http://localhost:5000/api/negocios');
+                const response = await fetch('https://wasi-maki-api.onrender.com/api/negocios'); // NUEVA LÍNEA
                 const data = await response.json();
                 
                 setNegocios(data); // ¡Actualiza el estado con los datos del Backend!
