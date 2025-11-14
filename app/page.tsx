@@ -8,14 +8,12 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
+// ...
+// Línea 12:
 let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
+    iconUrl: icon, // <--- AQUÍ ESTÁ EL ERROR
+    shadowUrl: iconShadow, // <--- Y AQUÍ
+    // ...
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 // --- FIN Configuración de Iconos ---
@@ -29,7 +27,7 @@ export default function WasiMakiMap() {
         const fetchNegocios = async () => {
             try {
                 // LLAMADA AL ENDPOINT CORRECTO
-                const response = await fetch('https://wasi-maki-api.onrender.com/api/negocios'); // NUEVA LÍNEA
+                const response = await fetch('http://localhost:5000/api/negocios');
                 const data = await response.json();
                 
                 setNegocios(data); // ¡Actualiza el estado con los datos del Backend!
